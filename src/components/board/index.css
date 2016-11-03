@@ -1,0 +1,24 @@
+.board {
+  &__table {
+    text-align: center;
+    border-collapse: collapse;
+    border: 3px solid #ccc;
+  }
+  &__row {
+    height: 2rem;
+    border-bottom: 1px solid #555;
+
+    &:nth-child(3n) {
+      border-bottom: 3px solid #ccc;
+    }
+  }
+  &__cell {
+    height: 2rem;
+    width: 2rem;
+    border-right: 1px solid #555;
+
+    &:nth-child(3n) {
+      border-right: 3px solid #ccc;
+    }
+  }
+}

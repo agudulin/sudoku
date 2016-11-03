@@ -8,6 +8,16 @@
 }
 
 :root, body, #root {
+  height: 100%;
   margin: 0;
 }
 
+body {
+  background-color: black;
+  color: white;
+  font-family: Lato, 'Lucida Grande';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
