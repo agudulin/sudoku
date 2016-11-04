@@ -11,6 +11,7 @@ const initialState = {
   board: null,
   conflictRow: -1,
   conflictColumn: -1,
+  gameOver: false,
   initialBoard: [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],

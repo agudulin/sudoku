@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import * as actions from 'common/general/actions'
-import { Board, ErrorPane } from 'components'
+import { Board, StatusPane } from 'components'
 
 import './index.css'
 
@@ -14,11 +14,20 @@ class App extends Component {
   }
 
   render () {
-    const { board, changeNumber, conflictColumn, conflictRow, initialBoard, loading, validBoard } = this.props
+    const {
+      board,
+      changeNumber,
+      conflictColumn,
+      conflictRow,
+      gameOver,
+      initialBoard,
+      loading,
+      validBoard
+    } = this.props
 
     return (
       <div className='app'>
-        <ErrorPane validBoard={validBoard} />
+        <StatusPane gameOver={gameOver} validBoard={validBoard} />
         <Board
           board={board || initialBoard}
           changeNumber={changeNumber}
@@ -37,6 +46,7 @@ const mapStateToProps = (state) => ({
   conflictRow: state.general.conflictRow,
   board: state.general.board,
   initialBoard: state.general.initialBoard,
+  gameOver: state.general.gameOver,
   loading: state.general.loading,
   validBoard: state.general.validBoard
 })
