@@ -5,7 +5,7 @@ import Cell from './cell'
 import Spinner from 'components/spinner'
 import './index.css'
 
-const Board = ({ board, changeNumber, loading }) => (
+const Board = ({ board, changeNumber, conflictColumn, conflictRow, loading }) => (
   <div className='board'>
     <Spinner loading={loading} />
     <table className='board__table'>
@@ -18,6 +18,8 @@ const Board = ({ board, changeNumber, loading }) => (
                   <Cell
                     cell={cellIdx}
                     changeNumber={changeNumber}
+                    conflictColumn={conflictColumn}
+                    conflictRow={conflictRow}
                     key={uniqueId()}
                     number={cell}
                     row={rowIdx}

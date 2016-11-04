@@ -5,7 +5,7 @@ import './index.css'
 
 const ErrorPane = ({ validBoard }) => (
   <div className={cx('error-pane', { 'error-pane--active': !validBoard })}>
-    Error!
+    Error! There is a conflict.
   </div>
 )
 

@@ -14,18 +14,26 @@ class App extends Component {
   }
 
   render () {
-    const { board, changeNumber, loading, validBoard } = this.props
+    const { board, changeNumber, conflictColumn, conflictRow, loading, validBoard } = this.props
 
     return (
       <div className='app'>
         <ErrorPane validBoard={validBoard} />
-        <Board board={board} changeNumber={changeNumber} loading={loading} />
+        <Board
+          board={board}
+          changeNumber={changeNumber}
+          conflictColumn={conflictColumn}
+          conflictRow={conflictRow}
+          loading={loading}
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
+  conflictColumn: state.general.conflictColumn,
+  conflictRow: state.general.conflictRow,
   board: state.general.board,
   loading: state.general.loading,
   validBoard: state.general.validBoard

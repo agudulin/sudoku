@@ -8,6 +8,8 @@ import {
 } from './actions'
 
 const initialState = {
+  conflictRow: -1,
+  conflictColumn: -1,
   board: [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -41,11 +43,29 @@ export default (state = initialState, action) => {
 
       return Object.assign({}, state, { board: newBoard, loading: true })
     },
-    [UPDATE_BOARD_ERROR]: ({ conflictRow, conflictColumn, valid, gameOver }) => (
-      Object.assign({}, state, { loading: false, validBoard: valid })
-    ),
+    [UPDATE_BOARD_ERROR]: ({ response }) => {
+      let parsedResponse = {}
+      try { parsedResponse = JSON.parse(response) } catch (e) { }
+
+      const { conflictRow, conflictColumn, valid: validBoard, gameOver } = parsedResponse
+
+      return Object.assign({}, state, {
+        gameOver,
+        loading: false,
+        validBoard,
+        conflictRow,
+        conflictColumn
+      })
+    },
     [UPDATE_BOARD_SUCCESS]: ({ board, valid, gameOver }) => (
-      Object.assign({}, state, { board, loading: false, validBoard: valid })
+      Object.assign({}, state, {
+        conflictRow: -1,
+        conflictColumn: -1,
+        board,
+        gameOver,
+        loading: false,
+        validBoard: valid
+      })
     )
   }[action.type]
 
