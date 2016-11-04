@@ -8,9 +8,10 @@ import {
 } from './actions'
 
 const initialState = {
+  board: null,
   conflictRow: -1,
   conflictColumn: -1,
-  board: [
+  initialBoard: [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -34,11 +35,15 @@ export default (state = initialState, action) => {
     [FETCH_BOARD_ERROR]: () => (
       Object.assign({}, state, { loading: false })
     ),
-    [FETCH_BOARD_SUCCESS]: ({ sudokuBoard: board }) => (
-      Object.assign({}, state, { board, loading: false })
+    [FETCH_BOARD_SUCCESS]: ({ sudokuBoard: initialBoard }) => (
+      Object.assign({}, state, {
+        initialBoard,
+        board: JSON.parse(JSON.stringify(initialBoard)),
+        loading: false
+      })
     ),
     [UPDATE_BOARD_START]: ({ moveColumn, moveRow, moveValue }) => {
-      const newBoard = [...state.board]
+      const newBoard = JSON.parse(JSON.stringify(state.board))
       newBoard[moveRow][moveColumn] = moveValue
 
       return Object.assign({}, state, { board: newBoard, loading: true })

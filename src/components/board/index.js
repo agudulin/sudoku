@@ -5,7 +5,7 @@ import Cell from './cell'
 import Spinner from 'components/spinner'
 import './index.css'
 
-const Board = ({ board, changeNumber, conflictColumn, conflictRow, loading }) => (
+const Board = ({ board, changeNumber, conflictColumn, conflictRow, initialBoard, loading }) => (
   <div className='board'>
     <Spinner loading={loading} />
     <table className='board__table'>
@@ -23,6 +23,7 @@ const Board = ({ board, changeNumber, conflictColumn, conflictRow, loading }) =>
                     key={uniqueId()}
                     number={cell}
                     row={rowIdx}
+                    editable={initialBoard[rowIdx][cellIdx] === 0}
                   />
                 ))
               }

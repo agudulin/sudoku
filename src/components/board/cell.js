@@ -8,11 +8,12 @@ const Cell = ({
   changeNumber,
   conflictColumn,
   conflictRow,
+  editable,
   number,
   row
 }) => {
   const classNames = cx('board__input', {
-    'board__input--default': number === 0,
+    'board__input--default': !editable,
     'board__input--error': cell === conflictColumn && row === conflictRow
   })
 
@@ -20,6 +21,7 @@ const Cell = ({
     <td className='board__cell'>
       <input
         className={classNames}
+        disabled={!editable}
         maxLength='1'
         type='text'
         onChange={(e) => changeNumber({ cell, row, value: e.target.value })}
