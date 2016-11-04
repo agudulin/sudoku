@@ -1,4 +1,6 @@
 .board {
+  position: relative;
+
   &__table {
     text-align: center;
     border-collapse: collapse;
@@ -30,5 +32,9 @@
     font-size: 1rem;
     background-color: black;
     color: white;
+
+    &--default {
+      
+    }
   }
 }

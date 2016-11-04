@@ -16,12 +16,17 @@ body {
   background-color: black;
   color: white;
   font-family: Lato, 'Lucida Grande';
+}
+
+#root {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -2rem;
   padding: 2rem;
 }
 
 .app {
   position: relative;
+  padding-top: 2rem;
 }

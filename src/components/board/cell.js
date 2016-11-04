@@ -1,14 +1,17 @@
 import React from 'react'
+import cx from 'classnames'
 
 import './index.css'
 
-const Cell = ({ number }) => (
+const Cell = ({ cell, changeNumber, number, row }) => (
   <td className='board__cell'>
-    {
-      number === 0
-        ? <input className='board__input' type='text' />
-        : number
-    }
+    <input
+      className={cx('board__input', { 'board__input--default': number === 0 })}
+      maxLength='1'
+      type='text'
+      onChange={(e) => changeNumber({ cell, row, value: e.target.value })}
+      value={number || ''}
+    />
   </td>
 )
 

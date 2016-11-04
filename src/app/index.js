@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import * as actions from 'common/general/actions'
-import { Board, Spinner } from 'components'
+import { Board, ErrorPane } from 'components'
 
 import './index.css'
 
@@ -14,12 +14,12 @@ class App extends Component {
   }
 
   render () {
-    const { board, loading } = this.props
+    const { board, changeNumber, loading, validBoard } = this.props
 
     return (
       <div className='app'>
-        <Spinner loading={loading} />
-        <Board board={board} />
+        <ErrorPane validBoard={validBoard} />
+        <Board board={board} changeNumber={changeNumber} loading={loading} />
       </div>
     )
   }
@@ -27,7 +27,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   board: state.general.board,
-  loading: state.general.loading
+  loading: state.general.loading,
+  validBoard: state.general.validBoard
 })
 
 export default connect(mapStateToProps, actions)(App)

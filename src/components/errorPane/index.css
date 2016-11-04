@@ -1,0 +1,11 @@
+.error-pane {
+  display: none;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 0;
+
+  &--active {
+    display: block;
+  }
+}
