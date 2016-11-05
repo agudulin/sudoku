@@ -11,6 +11,8 @@ Simple sudoku GUI
 ```sh
 yarn install   # npm install
 yarn start     # npm start
+
+yarn test      # npm test
 ```
 
 ## License
