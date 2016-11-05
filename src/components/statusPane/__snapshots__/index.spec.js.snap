@@ -1,0 +1,13 @@
+exports[`StatusPane renders correctly on error 1`] = `
+<div
+  className="status-pane status-pane--active">
+  👺 Error! There is a conflict.
+</div>
+`;
+
+exports[`StatusPane renders correctly on game over 1`] = `
+<div
+  className="status-pane status-pane--active">
+  👾 Congratulations!
+</div>
+`;

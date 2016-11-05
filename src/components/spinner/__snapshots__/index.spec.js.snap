@@ -1,0 +1,6 @@
+exports[`Spinner renders correctly when loading 1`] = `
+<div
+  className="spinner spinner--active">
+  Loading…
+</div>
+`;
